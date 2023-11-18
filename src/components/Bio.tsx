@@ -4,7 +4,7 @@ export default function Bio() {
   const bioList = [
     {
       title: "1996",
-      description: "Nacido en Viña del mar",
+      description: "Nacido en Viña del mar.",
     },
     {
       title: "2018",
@@ -12,15 +12,15 @@ export default function Bio() {
     },
     {
       title: "2019",
-      description: "Evualueserve, Full-Stack developer",
+      description: "Evualueserve, Full-Stack developer.",
     },
     {
       title: "2021",
-      description: "Jumpitt Labs, Full-Stack developer",
+      description: "Jumpitt Labs, Full-Stack developer.",
     },
     {
       title: "2023",
-      description: "Trabajando como Freelancer e Indie Developer",
+      description: "Trabajando como Freelancer e Indie Developer.",
     },
   ];
 

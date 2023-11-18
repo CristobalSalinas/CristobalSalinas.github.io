@@ -9,6 +9,7 @@ import Card from "@components/Card";
 import PresentationCard from "@components/PresentationCard";
 import Description from "@components/Description";
 import Bio from "@components/Bio";
+import PortfolioButton from "@components/PortfolioButton";
 import Socials from "@components/Socials.astro";
 import getSortedPosts from "@utils/getSortedPosts";
 import slugify from "@utils/slugify";
@@ -27,6 +28,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
     <section id="hero">
       <PresentationCard />
       <Description />
+      <Bio client:only/>
       {
         // only display if at least one social link is enabled
         socialCount > 0 && (
@@ -36,10 +38,7 @@ const socialCount = SOCIALS.filter(social => social.active).length;
           </div>
         )
       }
-
-      
-      <Bio client:only/>
-
+      <PortfolioButton />
     </section>
 
     <Hr />
@@ -112,3 +111,4 @@ const socialCount = SOCIALS.filter(social => social.active).length;
     @apply my-8 text-center;
   }
 </style>
+@components/PortfolioButton
