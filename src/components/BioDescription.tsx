@@ -6,7 +6,7 @@ export interface Props {
 const BioDescription = ({ title, description }: Props) => {
   return (
     <p>
-      <b>{title}:</b> {description}
+      <b>* {title}:</b> {description}
     </p>
   );
 };

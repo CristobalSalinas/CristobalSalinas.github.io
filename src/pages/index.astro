@@ -28,17 +28,17 @@ const socialCount = SOCIALS.filter(social => social.active).length;
     <section id="hero">
       <PresentationCard />
       <Description />
+      <PortfolioButton />
       <Bio client:only/>
       {
         // only display if at least one social link is enabled
         socialCount > 0 && (
           <div class="social-wrapper">
             <div class="social-links">Redes sociales:</div>
-            <Socials />
+            <Socials/>
           </div>
         )
       }
-      <PortfolioButton />
     </section>
 
     <Hr />
@@ -111,4 +111,3 @@ const socialCount = SOCIALS.filter(social => social.active).length;
     @apply my-8 text-center;
   }
 </style>
-@components/PortfolioButton

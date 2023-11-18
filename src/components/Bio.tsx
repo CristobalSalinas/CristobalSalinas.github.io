@@ -30,11 +30,13 @@ export default function Bio() {
         <u>Bio</u>
       </h2>
       <div className="w-full">
-        {bioList.map(bio => (
-          <>
-            <BioDescription title={bio.title} description={bio.description} />
-          </>
-        ))}
+        <ul>
+          {bioList.map(bio => (
+            <li key={bio.title}>
+              <BioDescription title={bio.title} description={bio.description} />
+            </li>
+          ))}
+        </ul>
       </div>
     </>
   );

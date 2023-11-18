@@ -1,6 +1,6 @@
 const Description = () => {
   return (
-    <p className="mt-5">
+    <p className="my-5">
       Ingeniero en Informática, graduado de Duoc UC, con especialización en
       desarrollo full-stack y aplicaciones móviles. Cuento con experiencia
       adquirida a través de colaboraciones con clientes, empresas y startups,
