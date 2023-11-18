@@ -1,5 +1,18 @@
 ---
+import {SITE} from "@config"; // Configuracion de el sitio
+import Portfolio from "@layouts/Portfolio.astro";
+import { getCollection } from "astro:content";
+import getSortedProyects from "@utils/getSortedProyects";
+import getPageNumbers from "@utils/getPageNumbers";
 
+
+const proyects = await getCollection("portfolio");
+const sortedProyects = getSortedProyects(proyects);
+const totalPages = getPageNumbers(sortedProyects.length);
+const paginatedPosts = sortedProyects.slice(0,SITE.postPerPage);
 ---
 
-<p>Pagina principal de trabajos</p>
+<Portfolio 
+    proyects={proyects}
+    pageNum={1}
+    totalPages={totalPages.length}/>

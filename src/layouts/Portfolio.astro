@@ -1,0 +1,31 @@
+---
+import { SITE } from "@config";
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Main from "./Main.astro";
+import type { CollectionEntry } from "astro:content";
+import PortfolioCard from "@components/PortfolioCard";
+import slugify from "@utils/slugify";
+
+export interface Props {
+  pageNum: number;
+  totalPages: number;
+  proyects: CollectionEntry<"portfolio">[];
+}
+
+const { pageNum, totalPages, proyects } = Astro.props;
+---
+
+<Layout title={`Portafolio | ${SITE.title}`}>
+  <Header activeNav="portfolio" />
+  <Main pageTitle="Portafolio" pageDesc="Proyectos en los que he trabajado">
+    <ul>
+      {
+        proyects.map(({ data }) => (
+          <PortfolioCard href={`/portfolio/${slugify(data)}`} frontmatter={data} />
+        ))
+      }
+    </ul>
+  </Main>
+</Layout>
+
