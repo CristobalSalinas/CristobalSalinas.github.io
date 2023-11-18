@@ -9,4 +9,4 @@ tags: [prueba]
 
 Esta es una prueba de blog para ver la respuesta de la pagina web al momento de leer contenido en md
 
-![AstroPaper v3](@assets/images/AstroPaper-v3.png)
+![AstroPaper v3](@assets/images/placeholder.png)
