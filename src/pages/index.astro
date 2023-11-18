@@ -8,6 +8,7 @@ import Hr from "@components/Hr.astro";
 import Card from "@components/Card";
 import PresentationCard from "@components/PresentationCard";
 import Description from "@components/Description";
+import Bio from "@components/Bio";
 import Socials from "@components/Socials.astro";
 import getSortedPosts from "@utils/getSortedPosts";
 import slugify from "@utils/slugify";
@@ -36,9 +37,8 @@ const socialCount = SOCIALS.filter(social => social.active).length;
         )
       }
 
-      <h2 class="text-lg">
-        <u>Bio</u>
-      </h2>
+      
+      <Bio client:only/>
 
     </section>
 
