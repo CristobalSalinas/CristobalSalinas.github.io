@@ -27,7 +27,7 @@ const next = pageNum < totalPages ? "" : "disabled";
     <ul>
       {
         proyects.map(({ data }) => (
-            <PortfolioCard href={`/portfolio/${slugify(data)}`} frontmatter={data} />
+          <PortfolioCard href={`/portfolio/${slugify(data)}`} frontmatter={data} />
         ))
       }
     </ul>
