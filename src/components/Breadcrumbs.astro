@@ -1,15 +1,11 @@
 ---
-// Remove current url path and remove trailing slash if exists
 const currentUrlPath = Astro.url.pathname.replace(/\/+$/, "");
+// const currentPathName = currentUrlPath.split("/").slice(1);
 
-// Get url array from path
-// eg: /tags/tailwindcss => ['tags', 'tailwindcss']
+// Sacar cual es la ruta base con su nombre
+// Si es que estoy en la pagina 2 o 3 ponerla
 const breadcrumbList = currentUrlPath.split("/").slice(1);
-
-// if breadcrumb is Home > Posts > 1 <etc>
-// replace Posts with Posts (page number)
-breadcrumbList[0] === "posts" &&
-  breadcrumbList.splice(0, 2, `Posts (pagina ${breadcrumbList[1] || 1})`);
+breadcrumbList.splice(0, 2, `${breadcrumbList[0]} (página ${breadcrumbList[1] || 1})`);
 ---
 
 <nav class="breadcrumb" aria-label="breadcrumb">

@@ -1,0 +1,56 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import Portfolio from "@layouts/Portfolio.astro";
+import PortfolioDetails from "@layouts/PortfolioDetails.astro";
+import getSortedProyects from "@utils/getSortedProyects";
+import getPageNumbers from "@utils/getPageNumbers";
+import slugify from "@utils/slugify";
+import { SITE } from "@config";
+
+export interface Props {
+    portfolio: CollectionEntry<"portfolio">;
+}
+
+export async function getStaticPaths() {
+  const porfolios = await getCollection("portfolio", ({ data }) => !data.draft);
+
+  const portfolioResults = porfolios.map(portfolio => ({
+    params: { slug: slugify(portfolio.data) },
+    props: { portfolio },
+  }));
+
+  const pagePaths = getPageNumbers(porfolios.length).map(pageNum => ({
+    params: { slug: String(pageNum) },
+  }));
+
+
+  return [...portfolioResults, ...pagePaths];
+}
+
+const { slug } = Astro.params;
+const {portfolio} = Astro.props;
+
+const portfolios = await getCollection("portfolio");
+const sortedPortfolios = getSortedProyects(portfolios);
+const totalPages = getPageNumbers(sortedPortfolios.length);
+const currentPage =
+  slug && !isNaN(Number(slug)) && totalPages.includes(Number(slug))
+    ? Number(slug)
+    : 0;
+const lastPost = currentPage * SITE.postPerPage;
+const startPost = lastPost - SITE.postPerPage;
+const paginatedPosts = sortedPortfolios.slice(startPost, lastPost);
+---
+
+{
+    portfolio ? (
+      <PortfolioDetails portfolio={portfolio} />
+    ) : (
+      <Portfolio 
+        proyects={paginatedPosts}
+        pageNum={currentPage}
+        totalPages={totalPages.length}
+      />
+    )
+  }
+  

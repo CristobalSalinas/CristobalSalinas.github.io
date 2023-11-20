@@ -8,6 +8,7 @@ import Card from "@components/Card";
 import LinkButton from "@components/LinkButton.astro";
 import slugify from "@utils/slugify";
 import type { CollectionEntry } from "astro:content";
+import BreadcrumbsTest from "@components/Breadcrumbs.astro";
 
 export interface Props {
   pageNum: number;
@@ -22,6 +23,7 @@ const next = pageNum < totalPages ? "" : "disabled";
 ---
 
 <Layout title={`Posts | ${SITE.title}`}>
+
   <Header activeNav="posts" />
   <Main pageTitle="Posts" pageDesc="Todos los articulos que he posteado.">
     <ul>
