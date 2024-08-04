@@ -10,4 +10,4 @@ image: portfolio1.jpg
 
 aaaaaaaaa
 
-![AstroPaper v3](@assets/images/placeholder.png)
+![AstroPaper v3](assets/images/placeholder.png)
